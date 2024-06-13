@@ -1,0 +1,40 @@
+package com.example.proyectoagenda
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+
+import androidx.compose.ui.Modifier
+
+import com.example.proyectoagenda.ui.theme.ProyectoAgendaTheme
+import com.example.proyectoagenda.ui.theme.view.loginUser
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ProyectoAgendaTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    miAgenda()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun miAgenda() {
+    ProyectoAgendaTheme {
+        // Aquí va tu contenido principal de la aplicación
+        // Por ejemplo, puedes llamar a tu pantalla de inicio de sesión:
+        loginUser()
+    }
+}
