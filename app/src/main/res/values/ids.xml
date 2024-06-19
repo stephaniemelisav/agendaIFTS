@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="etNombre" type="id" />
+    <item name="etEdad" type="id" />
+    <item name="btnInsertar" type="id" />
+    <item name="btnListar" type="id" />
+    <item name="btnActualizar" type="id" />
+    <item name="btnEliminar" type="id" />
+    <item name="lvUsuarios" type="id" />
+    <item name="main" type="id" />
+</resources>
