@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.ContextThemeWrapper
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.crudrealtimeadmin.R.style.CustomTimePickerDialog
+
+
 import com.example.crudrealtimeadmin.databinding.ActivityUploadBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -30,12 +32,16 @@ class UploadActivity : AppCompatActivity() {
         binding = ActivityUploadBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Probamos de usar el boton de "atras" para terminar la actividad acutual(CreateActivity) y lanzar la vista MainActivity
-        binding.btnAtras.setOnClickListener {
-            val intent = Intent(this@UploadActivity, MainActivity::class.java)
-            startActivity(intent) // Inicia la pantalla MainActivity
-            finish() // finaliza la pantalla actual (la cierra)
-        }
+        // Se sobreescribe la función del botón atras del sistema.
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val intent = Intent(this@UploadActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+                }
+            }
+        )
+
 
         //Configurar TimePickerDialog para la hora, si clickea abre popup
         binding.etHora.setOnClickListener {

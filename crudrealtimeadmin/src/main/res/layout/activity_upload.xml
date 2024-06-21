@@ -95,15 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etNameExamen"
         app:layout_constraintVertical_bias="0.121" />
 
-    <Button
-        android:id="@+id/btn_atras"
-        android:layout_width="105dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="30dp"
-        android:text="Atras"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
