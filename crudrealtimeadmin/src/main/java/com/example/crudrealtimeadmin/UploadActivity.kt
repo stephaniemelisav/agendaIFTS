@@ -1,14 +1,18 @@
 package com.example.crudrealtimeadmin
 
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextThemeWrapper
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.crudrealtimeadmin.R.style.CustomTimePickerDialog
 import com.example.crudrealtimeadmin.databinding.ActivityUploadBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.util.Calendar
 
 
 //aca vamos a conectar una bd con los datos creados
@@ -33,6 +37,24 @@ class UploadActivity : AppCompatActivity() {
             finish() // finaliza la pantalla actual (la cierra)
         }
 
+        //Configurar TimePickerDialog para la hora, si clickea abre popup
+        binding.etHora.setOnClickListener {
+            //en val calendar guardamos una instancia de calendar, que se usa para tener la hora y minutos
+            val calendar = Calendar.getInstance()
+            //formato de 24hs, 0 a 23
+            val hour = calendar.get(Calendar.HOUR_OF_DAY)
+            //minutos
+            val minute = calendar.get(Calendar.MINUTE)
+
+            //Aca permitimos la selección de la hora al usuario (profesor)
+            val timePickerDialog = TimePickerDialog(this, { _, selectedHour, selectedMinute ->
+                //selectedHour, selectedMinute representan los minutos y hora seleccionada
+                binding.etHora.setText(String.format("%02d:%02d", selectedHour, selectedMinute))
+            }, hour, minute, true)
+
+            timePickerDialog.show()
+        }
+
         binding.saveButton.setOnClickListener {
             //variables que guardan los datos
             val materia = binding.etMateria.text.toString()
@@ -45,7 +67,7 @@ class UploadActivity : AppCompatActivity() {
 
             val evento = DatoFecha( materia, fecha, hora, nombreExamen, tipo)
 
-            databaseReference.child(tipo).setValue(evento).addOnSuccessListener {
+            databaseReference.child(materia).setValue(evento).addOnSuccessListener {
                 binding.etMateria.text.clear()
                 binding.etFecha.text.clear()
                 binding.etHora.text.clear()

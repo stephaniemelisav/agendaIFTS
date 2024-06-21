@@ -1,62 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-    android:id="@+id/main_layout"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Campo para escribir la materia-->
 
-    <!--Campo para nombre -->
     <EditText
-        android:id="@+id/etNombre"
-        android:layout_width="match_parent"
+        android:id="@+id/etSearchMateria"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Nombre" />
+        android:layout_marginTop="176dp"
+        android:hint="Ingrese el nombre de la materia."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- campo para la edad-->
-    <EditText
-        android:id="@+id/etEdad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Edad"
-        android:inputType="number" />
+    <!-- Botón Buscar -->
 
-    <!--boton insertar-->
     <Button
-        android:id="@+id/btnInsertar"
-        android:layout_width="match_parent"
+        android:id="@+id/btnBuscar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Insertar Usuario" />
+        android:layout_marginTop="12dp"
+        android:text="Buscar eventos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etSearchMateria" />
 
-    //boton listar
-    <Button
-        android:id="@+id/btnListar"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvMateria"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Listar Usuarios" />
+        android:text="Materia:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscar"
+        app:layout_constraintVertical_bias="0.145" />
 
-    //boton actualizar
-    <Button
-        android:id="@+id/btnActualizar"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvFechaEvento"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Actualizar Usuario" />
+        android:text="Fecha: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMateria"
+        app:layout_constraintVertical_bias="0.09" />
 
-    //boton eliminar
-    <Button
-        android:id="@+id/btnEliminar"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvHoraEvento"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Eliminar Usuario" />
+        android:text="Hora: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFechaEvento"
+        app:layout_constraintVertical_bias="0.084" />
+
+    <TextView
+        android:id="@+id/tvDescriEvento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Descripción: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHoraEvento"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <TextView
+        android:id="@+id/tvTipoEvento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tipo: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriEvento"
+        app:layout_constraintVertical_bias="0.138" />
 
 
-    //lista que muestra
-    <ListView
-        android:id="@+id/lvUsuarios"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

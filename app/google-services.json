@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "515193130275",
+    "project_id": "agenda-ifts",
+    "storage_bucket": "agenda-ifts.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515193130275:android:eef9bf1f64ee15586e5096",
+        "android_client_info": {
+          "package_name": "com.example.prueba_kt_bd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrj8rSAsxAGsL6Ft5NKCGKRwkWQ_IiyJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
