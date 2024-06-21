@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "prueba_kt_bd"
 include(":app")
- 
+include(":crudrealtimeadmin")

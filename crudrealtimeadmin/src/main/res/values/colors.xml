@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="cambridge">#9FB798</color>
+    <color name="lapiz">#28587B</color>
+    <color name="coolgray">#7F7CAF</color>
+    <color name="powderblue">#9fb4c7</color>
+    <color name="lavender">#EEEEFF</color>
+
+</resources>

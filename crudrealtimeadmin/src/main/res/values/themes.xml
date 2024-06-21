@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Prueba_kt_bd" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/cambridge</item>
+        <item name="colorPrimaryVariant">@color/lapiz</item>
+        <item name="android:statusBarColor">@color/powderblue</item>
+        <item name="colorSecondary">@color/coolgray</item>
+
+
+    </style>
+
+    <style name="Theme.Prueba_kt_bd" parent="Base.Theme.Prueba_kt_bd" />
+</resources>

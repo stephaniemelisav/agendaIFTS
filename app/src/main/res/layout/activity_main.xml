@@ -8,14 +8,14 @@
     android:padding="16dp">
 
 
-    //Campo para nombre
+    <!--Campo para nombre -->
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre" />
 
-    //campo para la edad
+    <!-- campo para la edad-->
     <EditText
         android:id="@+id/etEdad"
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         android:hint="Edad"
         android:inputType="number" />
 
-    //boton insertar
+    <!--boton insertar-->
     <Button
         android:id="@+id/btnInsertar"
         android:layout_width="match_parent"

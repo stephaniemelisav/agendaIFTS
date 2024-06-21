@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.prueba_kt_bd"
+    namespace = "com.example.crudrealtimeadmin"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.prueba_kt_bd"
+        applicationId = "com.example.crudrealtimeadmin"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -34,7 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
+    buildFeatures{
         viewBinding = true
     }
 
@@ -47,10 +47,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.generativeai)
     implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
 }
