@@ -2,10 +2,20 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+<<<<<<< HEAD
       <entry key="app">
         <State />
       </entry>
       <entry key="crudrealtimeadmin">
+=======
+      <entry key="PreviewLoginScreen">
+        <State />
+      </entry>
+      <entry key="PreviewLoginUser">
+        <State />
+      </entry>
+      <entry key="app">
+>>>>>>> 488b164a06a7be2ed7c9159c36100d5bfa872c4f
         <State />
       </entry>
     </value>

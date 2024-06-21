@@ -1,21 +1,37 @@
 {
   "project_info": {
+<<<<<<< HEAD
     "project_number": "515193130275",
     "project_id": "agenda-ifts",
     "storage_bucket": "agenda-ifts.appspot.com"
+=======
+    "project_number": "69120730241",
+    "project_id": "proyectoagenda-c029a",
+    "storage_bucket": "proyectoagenda-c029a.appspot.com"
+>>>>>>> 488b164a06a7be2ed7c9159c36100d5bfa872c4f
   },
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
         "mobilesdk_app_id": "1:515193130275:android:eef9bf1f64ee15586e5096",
         "android_client_info": {
           "package_name": "com.example.prueba_kt_bd"
+=======
+        "mobilesdk_app_id": "1:69120730241:android:15359370bc2910c38ed980",
+        "android_client_info": {
+          "package_name": "com.example.proyectoagenda"
+>>>>>>> 488b164a06a7be2ed7c9159c36100d5bfa872c4f
         }
       },
       "oauth_client": [],
       "api_key": [
         {
+<<<<<<< HEAD
           "current_key": "AIzaSyDrj8rSAsxAGsL6Ft5NKCGKRwkWQ_IiyJY"
+=======
+          "current_key": "AIzaSyDNKJvBav3NsoqoE1mYm_xlGfd6XR4nOIs"
+>>>>>>> 488b164a06a7be2ed7c9159c36100d5bfa872c4f
         }
       ],
       "services": {
