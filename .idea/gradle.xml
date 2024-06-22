@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="GradleMigrationSettings" migrationVersion="1" />
-=======
->>>>>>> 488b164a06a7be2ed7c9159c36100d5bfa872c4f
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -13,10 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-<<<<<<< HEAD
             <option value="$PROJECT_DIR$/crudrealtimeadmin" />
-=======
->>>>>>> 488b164a06a7be2ed7c9159c36100d5bfa872c4f
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
