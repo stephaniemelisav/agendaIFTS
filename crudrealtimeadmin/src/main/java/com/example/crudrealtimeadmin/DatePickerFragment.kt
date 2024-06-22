@@ -22,6 +22,7 @@ class DatePickerFragment(val listener: (dia:Int, mes:Int, anion:Int) -> Unit): D
         val anion = c.get(Calendar.YEAR)
 
         val picker = DatePickerDialog(activity as Context, this, anion, mes, dia)
+        picker.datePicker.minDate = c.timeInMillis // selecciona fecha a partir de la actual.
         return picker
 
     }
