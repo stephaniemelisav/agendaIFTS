@@ -4,7 +4,8 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.ContextThemeWrapper
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
@@ -42,6 +43,20 @@ class UploadActivity : AppCompatActivity() {
             }
         )
 
+        //____________Menú spinner para Materia y tipos_____________
+        val materias : Spinner = binding.spMaterias
+        val tipos :Spinner = binding.spTipo
+        // ---------Harcodeo lista materias
+        val listaMaterias = arrayOf("Seleccione materia", "Materia 01","Materia 02","Materia 03","Materia 04", "Materia 05")
+        val adaptMaterias = ArrayAdapter(this, R.layout.item_spinner, listaMaterias)
+        // ---------Hardcodeo lista tipos
+        val listaTipos = arrayOf("Seleccione tipo" ,"Examen","Trabajo práctico","Otro")
+        val adaptTipos = ArrayAdapter(this, R.layout.item_spinner,listaTipos)
+
+        materias.adapter = adaptMaterias
+        tipos.adapter = adaptTipos
+        // ____________________Fin Spinners______________________
+
 
         //Configurar TimePickerDialog para la hora, si clickea abre popup
         binding.etHora.setOnClickListener {
@@ -62,23 +77,25 @@ class UploadActivity : AppCompatActivity() {
         }
 
         binding.saveButton.setOnClickListener {
+            // Elección de spinner
+            // Se valida valor de posición
+            val materiaSeleccionada : String? = if(materias.selectedItemPosition == 0) null else materias.selectedItem.toString()
+            val tipoSeleccionado : String? = if(tipos.selectedItemPosition == 0)null else tipos.selectedItem.toString()
             //variables que guardan los datos
-            val materia = binding.etMateria.text.toString()
+
             val fecha = binding.etFecha.text.toString()
             val hora = binding.etHora.text.toString()
             val nombreExamen = binding.etNameExamen.text.toString()
-            val tipo = binding.etTipo.text.toString()
+            //val tipo = binding.etTipo.text.toString()
 
             databaseReference = FirebaseDatabase.getInstance().getReference("evento")
 
-            val evento = DatoFecha( materia, fecha, hora, nombreExamen, tipo)
+            val evento = DatoFecha( materiaSeleccionada, fecha, hora, nombreExamen, tipoSeleccionado)
 
-            databaseReference.child(materia).setValue(evento).addOnSuccessListener {
-                binding.etMateria.text.clear()
+            databaseReference.child(fecha).setValue(evento).addOnSuccessListener {
                 binding.etFecha.text.clear()
                 binding.etHora.text.clear()
                 binding.etNameExamen.text.clear()
-                binding.etTipo.text.clear()
 
                 // Muestra un pequeño aviso de que se subió correctamente
                 Toast.makeText(this, "Evento guardado.", Toast.LENGTH_LONG).show()

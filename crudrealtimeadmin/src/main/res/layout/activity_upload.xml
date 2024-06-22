@@ -10,91 +10,93 @@
 
 
 
-    <EditText
-        android:id="@+id/etMateria"
-        android:layout_width="347dp"
-        android:layout_height="49dp"
-        android:hint="Materia"
-        android:inputType="text"
+    <Spinner
+        android:id="@+id/spMaterias"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        android:background="@drawable/green_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.233" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <EditText
         android:id="@+id/etFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="340dp"
-        android:hint="Fecha: DD/MM/YYYY"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="text"
+        android:hint="Fecha"
+        android:gravity="center"
+        android:focusable="false"
+        android:clickable="true"
+        android:background="@drawable/green_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMateria"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintTop_toBottomOf="@+id/spMaterias"
+        app:layout_constraintVertical_bias="0.08" />
 
     <EditText
         android:id="@+id/etHora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="text"
         android:hint="Hora"
+        android:gravity="center"
         android:focusable="false"
         android:clickable="true"
+        android:background="@drawable/green_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFecha"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0.08" />
 
     <EditText
         android:id="@+id/etNameExamen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:hint="Descripción"
+        android:gravity="center"
         android:inputType="text"
+        android:background="@drawable/green_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etHora"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.08" />
 
+
+
+    <Spinner
+        android:id="@+id/spTipo"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        android:background="@drawable/green_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNameExamen"
+        app:layout_constraintVertical_bias="0.08" />
 
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:text="Guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.837" />
-
-    <EditText
-        android:id="@+id/etTipo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Tipo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNameExamen"
-        app:layout_constraintVertical_bias="0.121" />
-
+        app:layout_constraintTop_toBottomOf="@+id/spTipo"
+        app:layout_constraintVertical_bias="0.4" />
 
 
 

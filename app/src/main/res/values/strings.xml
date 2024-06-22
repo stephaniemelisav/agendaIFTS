@@ -1,7 +1,3 @@
 <resources>
-<<<<<<< HEAD
     <string name="app_name">prueba_kt_bd</string>
-=======
-    <string name="app_name">proyectoAgenda</string>
->>>>>>> 488b164a06a7be2ed7c9159c36100d5bfa872c4f
 </resources>

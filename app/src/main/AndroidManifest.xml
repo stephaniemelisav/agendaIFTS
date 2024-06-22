@@ -10,21 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-<<<<<<< HEAD
         android:theme="@style/Theme.Prueba_kt_bd"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
             android:exported="true">
-=======
-        android:theme="@style/Theme.ProyectoAgenda"
-        tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.ProyectoAgenda">
->>>>>>> 488b164a06a7be2ed7c9159c36100d5bfa872c4f
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
