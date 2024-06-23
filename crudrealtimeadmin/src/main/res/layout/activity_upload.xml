@@ -7,7 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".UploadActivity">
 
-
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/LOGOIFTS18"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.015"
+        />
 
 
     <Spinner
@@ -27,13 +39,15 @@
         android:id="@+id/etFecha"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Fecha"
-        android:gravity="center"
-        android:focusable="false"
-        android:clickable="true"
         android:background="@drawable/green_border"
+        android:clickable="true"
+        android:drawableStart="@drawable/baseline_date_range_24"
+        android:ems="10"
+        android:focusable="false"
+        android:gravity="center"
+        android:hint="Fecha"
+        android:inputType="text"
+        android:padding="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +61,8 @@
         android:ems="10"
         android:inputType="text"
         android:hint="Hora"
+        android:drawableStart="@drawable/baseline_access_time_24"
+        android:padding="12dp"
         android:gravity="center"
         android:focusable="false"
         android:clickable="true"
@@ -63,6 +79,8 @@
         android:layout_height="50dp"
         android:ems="10"
         android:hint="Descripción"
+        android:drawableStart="@drawable/baseline_description_24"
+        android:padding="12dp"
         android:gravity="center"
         android:inputType="text"
         android:background="@drawable/green_border"
@@ -89,7 +107,7 @@
 
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="180dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:text="Guardar"
         app:layout_constraintBottom_toBottomOf="parent"
