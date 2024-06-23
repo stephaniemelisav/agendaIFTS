@@ -1,4 +1,4 @@
-package com.example.crudrealtimeadmin
+package com.example.crudrealtimeadmin.items
 
 data class DatoFecha(
     val materia: String? = null,

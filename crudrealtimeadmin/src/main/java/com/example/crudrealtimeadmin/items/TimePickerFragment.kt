@@ -1,4 +1,4 @@
-package com.example.crudrealtimeadmin
+package com.example.crudrealtimeadmin.items
 
 import android.app.Dialog
 import android.app.TimePickerDialog

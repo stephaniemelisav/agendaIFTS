@@ -1,5 +1,7 @@
-package com.example.crudrealtimeadmin
 
+package com.example.crudrealtimeadmin.activitys
+
+import EventoAdapter
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
 import android.content.Intent
@@ -11,23 +13,28 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.crudrealtimeadmin.R
 import com.example.crudrealtimeadmin.databinding.ActivityUploadBinding
+import com.example.crudrealtimeadmin.items.DatePickerFragment
+import com.example.crudrealtimeadmin.items.DatoFecha
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.util.Calendar
+
 
 class UploadActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUploadBinding
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var eventAdapter: EventoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_upload)
-
         binding = ActivityUploadBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference("evento")
 
@@ -38,6 +45,7 @@ class UploadActivity : AppCompatActivity() {
                 finish()
             }
         })
+
 
         val materias: Spinner = binding.spMaterias
         val tipos: Spinner = binding.spTipo
@@ -90,7 +98,14 @@ class UploadActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error al generar ID único para el evento", Toast.LENGTH_LONG).show()
             }
         }
+        binding.viewButton.setOnClickListener {
+            val intent = Intent(this@UploadActivity, ViewActivity::class.java)
+            startActivity(intent)
+        }
+
     }
+
+
 
     private fun mostrarSelectorFecha() {
         val datePicker = DatePickerFragment { dia, mes, anio -> enLaFechaElegida(dia, mes, anio) }

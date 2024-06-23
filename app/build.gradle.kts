@@ -38,6 +38,8 @@ android {
         viewBinding = true
     }
 
+
+
 }
 
 dependencies {
@@ -49,6 +51,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.generativeai)
     implementation(libs.firebase.database)
+    
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
