@@ -10,18 +10,63 @@
     <!-- Botón que nos llevara al crud para el profesor -->
 
     <!-- Button que nos lleva a lo que vera alumno -->
+    <ImageView
+        android:id="@+id/logoifts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logoifts18"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        app:layout_constraintVertical_bias="0.015"/>
+
+    <TextView
+        android:id="@+id/tv_titulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="¿Que acción deseas realizar?"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoifts"
+        app:layout_constraintVertical_bias="0.2"/>
 
     <Button
         android:id="@+id/alumnButton"
-        android:layout_width="146dp"
-        android:layout_height="74dp"
-        android:onClick="openActivity2"
-        android:text="Registrar evento"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Cargar un evento"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+        app:layout_constraintVertical_bias="0.28" />
+    <Button
+        android:id="@+id/btn_modificar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Modificar un evento"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alumnButton"
+        app:layout_constraintVertical_bias="0.1" />
+    <Button
+        android:id="@+id/btn_borrar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Eliminar un evento"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_modificar"
+        app:layout_constraintVertical_bias="0.1" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
