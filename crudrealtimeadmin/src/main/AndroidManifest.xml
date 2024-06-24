@@ -9,29 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Prueba_kt_bd">
-
+        <activity
+            android:name=".activitys.EventDetail"
+            android:exported="false" />
         <!-- Actividad principal -->
         <activity
             android:name=".activitys.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Actividad de subida (UploadActivity) -->
+        </activity> <!-- Actividad de subida (UploadActivity) -->
         <activity
             android:name=".activitys.UploadActivity"
-            android:exported="false" />
-
-        <!-- Actividad de visualización (ViewActivity) -->
+            android:exported="false" /> <!-- Actividad de visualización (ViewActivity) -->
         <activity
             android:name=".activitys.ViewActivity"
             android:exported="false" />
-
-        <!-- Otras actividades -->
-
     </application>
 
 </manifest>

@@ -1,7 +1,6 @@
 
 package com.example.crudrealtimeadmin.activitys
 
-import EventoAdapter
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
 import android.content.Intent
@@ -14,6 +13,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.crudrealtimeadmin.R
+import com.example.crudrealtimeadmin.adapter.EventoAdapter
 import com.example.crudrealtimeadmin.databinding.ActivityUploadBinding
 import com.example.crudrealtimeadmin.items.DatePickerFragment
 import com.example.crudrealtimeadmin.items.DatoFecha
@@ -26,7 +26,7 @@ class UploadActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUploadBinding
     private lateinit var databaseReference: DatabaseReference
-    private lateinit var eventAdapter: EventoAdapter
+    private lateinit var eventAdapter: EventoAdapter.EventViewHolder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
