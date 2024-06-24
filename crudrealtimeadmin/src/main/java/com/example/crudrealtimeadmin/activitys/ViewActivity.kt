@@ -1,5 +1,6 @@
 package com.example.crudrealtimeadmin.activitys
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +34,12 @@ class ViewActivity : AppCompatActivity() {
         getEventData()
     }
 
+    // Vuelve a cargar los datos cada vez que la actividad se reanuda (gracias ciclo de vida)
+    override fun onResume() {
+        super.onResume()
+        getEventData()
+    }
+
     private fun getEventData() {
         empRecyclerView.visibility = View.GONE
 
@@ -47,6 +54,21 @@ class ViewActivity : AppCompatActivity() {
                     }
                     val mAdapter = EventoAdapter(empEventos)
                     empRecyclerView.adapter = mAdapter
+
+                    mAdapter.setOnClickListener(object : EventoAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(this@ViewActivity, EventDetail::class.java )
+                            // Ingresamos extras
+                            intent.putExtra("IDevento", empEventos[position].id )
+                            intent.putExtra("evMateria", empEventos[position].materia )
+                            intent.putExtra("evFecha", empEventos[position].fecha )
+                            intent.putExtra("evHora", empEventos[position].hora )
+                            intent.putExtra("evTipo", empEventos[position].tipo )
+                            intent.putExtra("evDescripcion", empEventos[position].nombreExamen )
+                            startActivity(intent)
+                        }
+
+                    })
 
                     empRecyclerView.visibility = View.VISIBLE
                 }

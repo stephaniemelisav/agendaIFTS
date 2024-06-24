@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activitys.UploadActivity">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingEnd="20dp"
-        android:paddingStart="20dp"
-        app:srcCompat="@drawable/logoifts18"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Spinner
         android:id="@+id/spMaterias"
@@ -33,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.10" />
 
     <EditText
         android:id="@+id/etFecha"
@@ -52,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spMaterias"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <EditText
         android:id="@+id/etHora"
@@ -71,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFecha"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <Spinner
         android:id="@+id/spTipo"
@@ -84,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etHora"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <EditText
         android:id="@+id/etNameExamen"
@@ -101,30 +83,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spTipo"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <Button
-        android:id="@+id/viewButton"
+        android:id="@+id/btnActualizarDatos"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:text="Ver eventos"
-
+        android:text="Guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNameExamen"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="330dp"
-        android:layout_height="70dp"
-        android:text="Guardar"
-        android:backgroundTint="@android:color/holo_green_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewButton"
-        app:layout_constraintVertical_bias="0.4" />
+        android:layout_marginTop="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

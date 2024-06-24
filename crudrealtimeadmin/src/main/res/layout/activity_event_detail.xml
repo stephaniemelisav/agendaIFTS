@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.EventDetail"
+    android:padding="16dp">
+
+    <!-- Background to add rounded corners and shadow -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_shadow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="60dp">
+
+        <!-- ID -->
+        <TextView
+            android:id="@+id/labelID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID:"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:text=""
+            app:layout_constraintStart_toEndOf="@id/labelID"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelMateria"/>
+
+        <!-- Materia -->
+        <TextView
+            android:id="@+id/labelMateria"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Materia:"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvID"/>
+
+        <TextView
+            android:id="@+id/tvMateria"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text=""
+            app:layout_constraintStart_toEndOf="@id/labelMateria"
+            app:layout_constraintTop_toBottomOf="@id/tvID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelFecha"/>
+
+        <!-- Fecha -->
+        <TextView
+            android:id="@+id/labelFecha"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Fecha:"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMateria"/>
+
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text=""
+            app:layout_constraintStart_toEndOf="@id/labelFecha"
+            app:layout_constraintTop_toBottomOf="@id/tvMateria"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelHora"/>
+
+        <!-- Hora -->
+        <TextView
+            android:id="@+id/labelHora"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Hora:"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFecha"/>
+
+        <TextView
+            android:id="@+id/tvHora"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text=""
+            app:layout_constraintStart_toEndOf="@id/labelHora"
+            app:layout_constraintTop_toBottomOf="@id/tvFecha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelTipo"/>
+
+        <!-- Tipo -->
+        <TextView
+            android:id="@+id/labelTipo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Tipo:"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHora"/>
+
+        <TextView
+            android:id="@+id/tvTipo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text=""
+            app:layout_constraintStart_toEndOf="@id/labelTipo"
+            app:layout_constraintTop_toBottomOf="@id/tvHora"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelDescripcion"/>
+
+        <!-- Descripcion -->
+        <TextView
+            android:id="@+id/labelDescripcion"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Descripcion:"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTipo"/>
+
+        <TextView
+            android:id="@+id/tvDescripcion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text=""
+            app:layout_constraintStart_toEndOf="@id/labelDescripcion"
+            app:layout_constraintTop_toBottomOf="@id/tvTipo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnBorrar"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:text="Eliminar"
+        android:backgroundTint="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:layout_marginStart="30dp"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <Button
+        android:id="@+id/btn_Modificar"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:text="Modificar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintVertical_bias="0.6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

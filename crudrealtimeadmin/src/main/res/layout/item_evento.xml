@@ -5,34 +5,79 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/tvMateria"
+    <!-- Background to add rounded corners and shadow -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:background="@drawable/rounded_shadow"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvFecha"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvFecha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMateria"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvHora"/>
+        <!-- Materia -->
+        <TextView
+            android:id="@+id/labelMateria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Materia:"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/tvHora"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvFecha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/tvMateria"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/labelMateria"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelFecha"/>
+
+        <!-- Fecha -->
+        <TextView
+            android:id="@+id/labelFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha:"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMateria"/>
+
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/labelFecha"
+            app:layout_constraintTop_toBottomOf="@id/tvMateria"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelHora"/>
+
+        <!-- Hora -->
+        <TextView
+            android:id="@+id/labelHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hora:"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFecha"/>
+
+        <TextView
+            android:id="@+id/tvHora"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/labelHora"
+            app:layout_constraintTop_toBottomOf="@id/tvFecha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

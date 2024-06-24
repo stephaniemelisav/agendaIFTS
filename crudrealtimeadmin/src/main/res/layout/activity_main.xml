@@ -9,19 +9,57 @@
 
     <!-- Botón que nos llevara al crud para el profesor -->
 
-    <!-- Button que nos lleva a lo que vera alumno -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        app:srcCompat="@drawable/logoifts18"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
         android:id="@+id/alumnButton"
-        android:layout_width="146dp"
+        android:layout_width="wrap_content"
         android:layout_height="74dp"
-        android:onClick="openActivity2"
-        android:text="Registrar evento"
+        android:text="Iniciar Sesion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:hint="Contraseña"
+        android:background="@drawable/green_border"
+        app:layout_constraintBottom_toTopOf="@+id/alumnButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.2"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:hint="DNI"
+        android:background="@drawable/green_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

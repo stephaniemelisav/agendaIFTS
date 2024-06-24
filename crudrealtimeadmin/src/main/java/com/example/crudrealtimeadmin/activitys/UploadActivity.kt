@@ -1,7 +1,6 @@
 
 package com.example.crudrealtimeadmin.activitys
 
-import EventoAdapter
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
 import android.content.Intent
@@ -14,6 +13,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.crudrealtimeadmin.R
+import com.example.crudrealtimeadmin.adapter.EventoAdapter
 import com.example.crudrealtimeadmin.databinding.ActivityUploadBinding
 import com.example.crudrealtimeadmin.items.DatePickerFragment
 import com.example.crudrealtimeadmin.items.DatoFecha
@@ -26,7 +26,7 @@ class UploadActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUploadBinding
     private lateinit var databaseReference: DatabaseReference
-    private lateinit var eventAdapter: EventoAdapter
+    private lateinit var eventAdapter: EventoAdapter.EventViewHolder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +50,7 @@ class UploadActivity : AppCompatActivity() {
         val materias: Spinner = binding.spMaterias
         val tipos: Spinner = binding.spTipo
 
-        val listaMaterias = arrayOf("Seleccione materia", "Materia 01", "Materia 02", "Materia 03", "Materia 04", "Materia 05")
+        val listaMaterias = arrayOf("Seleccione materia", "PPI", "Testing", "Mobile", "TIC", "Taller de comunicación")
         val adaptMaterias = ArrayAdapter(this, R.layout.item_spinner, listaMaterias)
         val listaTipos = arrayOf("Seleccione tipo", "Examen", "Trabajo práctico", "Otro")
         val adaptTipos = ArrayAdapter(this, R.layout.item_spinner, listaTipos)
@@ -73,15 +73,17 @@ class UploadActivity : AppCompatActivity() {
         }
 
         binding.saveButton.setOnClickListener {
+
             val materiaSeleccionada: String? = if (materias.selectedItemPosition == 0) null else materias.selectedItem.toString()
             val tipoSeleccionado: String? = if (tipos.selectedItemPosition == 0) null else tipos.selectedItem.toString()
             val fecha = binding.etFecha.text.toString()
             val hora = binding.etHora.text.toString()
             val nombreExamen = binding.etNameExamen.text.toString()
 
-            val evento = DatoFecha(materiaSeleccionada, fecha, hora, nombreExamen, tipoSeleccionado)
-
             val uniqueKey = databaseReference.push().key
+
+            val evento = DatoFecha(uniqueKey, materiaSeleccionada, fecha, hora, nombreExamen, tipoSeleccionado)
+
 
             if (uniqueKey != null) {
                 databaseReference.child(uniqueKey).setValue(evento).addOnSuccessListener {
