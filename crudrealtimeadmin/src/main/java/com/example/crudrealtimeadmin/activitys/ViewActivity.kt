@@ -1,5 +1,6 @@
 package com.example.crudrealtimeadmin.activitys
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -47,6 +48,15 @@ class ViewActivity : AppCompatActivity() {
                     }
                     val mAdapter = EventoAdapter(empEventos)
                     empRecyclerView.adapter = mAdapter
+
+                    mAdapter.setOnClickListener(object : EventoAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(this@ViewActivity, EventDetail::class.java )
+                            // Ingresamos extras
+                            intent.putExtra("IDevento", empEventos[position].id )
+                        }
+
+                    })
 
                     empRecyclerView.visibility = View.VISIBLE
                 }

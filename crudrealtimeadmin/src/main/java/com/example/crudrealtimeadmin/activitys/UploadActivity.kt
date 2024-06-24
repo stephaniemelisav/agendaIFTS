@@ -73,15 +73,17 @@ class UploadActivity : AppCompatActivity() {
         }
 
         binding.saveButton.setOnClickListener {
+            val uniqueKey = databaseReference.push().key
+
+            val idEvento = uniqueKey.toString()
             val materiaSeleccionada: String? = if (materias.selectedItemPosition == 0) null else materias.selectedItem.toString()
             val tipoSeleccionado: String? = if (tipos.selectedItemPosition == 0) null else tipos.selectedItem.toString()
             val fecha = binding.etFecha.text.toString()
             val hora = binding.etHora.text.toString()
             val nombreExamen = binding.etNameExamen.text.toString()
 
-            val evento = DatoFecha(materiaSeleccionada, fecha, hora, nombreExamen, tipoSeleccionado)
+            val evento = DatoFecha(idEvento, materiaSeleccionada, fecha, hora, nombreExamen, tipoSeleccionado)
 
-            val uniqueKey = databaseReference.push().key
 
             if (uniqueKey != null) {
                 databaseReference.child(uniqueKey).setValue(evento).addOnSuccessListener {
