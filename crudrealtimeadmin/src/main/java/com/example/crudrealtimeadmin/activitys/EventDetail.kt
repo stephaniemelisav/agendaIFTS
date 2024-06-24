@@ -1,5 +1,8 @@
 package com.example.crudrealtimeadmin.activitys
 
+
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -12,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.crudrealtimeadmin.R
 import com.example.crudrealtimeadmin.items.DatoFecha
 import com.google.firebase.database.FirebaseDatabase
+import java.util.Calendar
 
 class EventDetail : AppCompatActivity() {
 
@@ -31,13 +35,11 @@ class EventDetail : AppCompatActivity() {
         iniciarVista()
         establecerValoresEnVista()
         btnActualizar.setOnClickListener {
-            openUpdateDialog(
-                intent.getStringExtra("IDevento").toString()
-            )
+            openUpdateDialog(intent.getStringExtra("IDevento").toString())
         }
     }
 
-    private fun iniciarVista(){
+    private fun iniciarVista() {
         tvEventID = findViewById(R.id.tvID)
         tvEventMateria = findViewById(R.id.tvMateria)
         tvEventFecha = findViewById(R.id.tvFecha)
@@ -48,7 +50,7 @@ class EventDetail : AppCompatActivity() {
         btnEliminar = findViewById(R.id.btn_Borrar)
     }
 
-    private fun establecerValoresEnVista(){
+    private fun establecerValoresEnVista() {
         tvEventID.text = intent.getStringExtra("IDevento")
         tvEventMateria.text = intent.getStringExtra("evMateria")
         tvEventFecha.text = intent.getStringExtra("evFecha")
@@ -60,7 +62,7 @@ class EventDetail : AppCompatActivity() {
     private fun openUpdateDialog(iDevento: String) {
         val mDialog = AlertDialog.Builder(this)
         val inflater = layoutInflater
-        val mDialogView = inflater.inflate(R.layout.update_dialog, null) // vinculamos el xml
+        val mDialogView = inflater.inflate(R.layout.update_dialog, null)
 
         // Configurar los Spinners
         val sp_Materia = mDialogView.findViewById<Spinner>(R.id.spMaterias)
@@ -73,6 +75,19 @@ class EventDetail : AppCompatActivity() {
 
         sp_Materia.adapter = adaptMaterias
         sp_Tipo.adapter = adaptTipos
+
+        // Configurar campos de fecha y hora
+        val et_Fecha = mDialogView.findViewById<EditText>(R.id.etFecha)
+        val et_Hora = mDialogView.findViewById<EditText>(R.id.etHora)
+        val et_Descript = mDialogView.findViewById<EditText>(R.id.etNameExamen)
+        val btn_updt = mDialogView.findViewById<Button>(R.id.btnActualizarDatos)
+
+        et_Fecha.setText(intent.getStringExtra("evFecha").toString())
+        et_Hora.setText(intent.getStringExtra("evHora").toString())
+        et_Descript.setText(intent.getStringExtra("evDescripcion").toString())
+
+        et_Fecha.setOnClickListener { mostrarSelectorFecha(et_Fecha) }
+        et_Hora.setOnClickListener { mostrarSelectorHora(et_Hora) }
 
         // Obtener los valores del Intent y establecerlos en los Spinners
         val evMateria = intent.getStringExtra("evMateria")
@@ -91,16 +106,6 @@ class EventDetail : AppCompatActivity() {
                 sp_Tipo.setSelection(position)
             }
         }
-
-        // Configurar otros campos del diálogo
-        val et_Fecha = mDialogView.findViewById<EditText>(R.id.etFecha)
-        val et_Hora = mDialogView.findViewById<EditText>(R.id.etHora)
-        val et_Descript = mDialogView.findViewById<EditText>(R.id.etNameExamen)
-        val btn_updt = mDialogView.findViewById<Button>(R.id.btnActualizarDatos)
-
-        et_Fecha.setText(intent.getStringExtra("evFecha").toString())
-        et_Hora.setText(intent.getStringExtra("evHora").toString())
-        et_Descript.setText(intent.getStringExtra("evDescripcion").toString())
 
         mDialog.setView(mDialogView)
         mDialog.setTitle("Modificación de Evento")
@@ -130,6 +135,34 @@ class EventDetail : AppCompatActivity() {
 
             alertDialog.dismiss()
         }
+    }
+
+    private fun mostrarSelectorFecha(et_Fecha: EditText) {
+        val calendar = Calendar.getInstance()
+        val anio = calendar.get(Calendar.YEAR)
+        val mes = calendar.get(Calendar.MONTH)
+        val dia = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(this, { _, year, month, dayOfMonth ->
+            et_Fecha.setText(String.format("%02d-%02d-%04d", dayOfMonth, month + 1, year))
+        }, anio, mes, dia)
+
+        // Configurar el mínimo permitido como la fecha actual
+        datePickerDialog.datePicker.minDate = calendar.timeInMillis
+
+        datePickerDialog.show()
+    }
+
+    private fun mostrarSelectorHora(et_Hora: EditText) {
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+
+        val timePickerDialog = TimePickerDialog(this, { _, selectedHour, selectedMinute ->
+            et_Hora.setText(String.format("%02d:%02d", selectedHour, selectedMinute))
+        }, hour, minute, true)
+
+        timePickerDialog.show()
     }
 
     private fun actualizarDatosEvento(
