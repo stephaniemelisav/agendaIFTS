@@ -54,6 +54,12 @@ class ViewActivity : AppCompatActivity() {
                             val intent = Intent(this@ViewActivity, EventDetail::class.java )
                             // Ingresamos extras
                             intent.putExtra("IDevento", empEventos[position].id )
+                            intent.putExtra("evMateria", empEventos[position].materia )
+                            intent.putExtra("evFecha", empEventos[position].fecha )
+                            intent.putExtra("evHora", empEventos[position].hora )
+                            intent.putExtra("evDescripcion", empEventos[position].nombreExamen )
+                            intent.putExtra("evTipo", empEventos[position].tipo )
+                            startActivity(intent)
                         }
 
                     })
