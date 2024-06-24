@@ -57,8 +57,8 @@ class ViewActivity : AppCompatActivity() {
                             intent.putExtra("evMateria", empEventos[position].materia )
                             intent.putExtra("evFecha", empEventos[position].fecha )
                             intent.putExtra("evHora", empEventos[position].hora )
-                            intent.putExtra("evDescripcion", empEventos[position].nombreExamen )
                             intent.putExtra("evTipo", empEventos[position].tipo )
+                            intent.putExtra("evDescripcion", empEventos[position].nombreExamen )
                             startActivity(intent)
                         }
 

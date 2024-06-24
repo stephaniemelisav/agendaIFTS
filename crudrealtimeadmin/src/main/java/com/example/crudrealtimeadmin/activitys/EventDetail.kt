@@ -1,12 +1,17 @@
 package com.example.crudrealtimeadmin.activitys
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.crudrealtimeadmin.R
+import com.example.crudrealtimeadmin.items.DatoFecha
+import com.google.firebase.database.FirebaseDatabase
 
 class EventDetail : AppCompatActivity() {
 
@@ -27,8 +32,7 @@ class EventDetail : AppCompatActivity() {
         establecerValoresEnVista()
         btnActualizar.setOnClickListener {
             openUpdateDialog(
-                intent.getStringExtra("IDevento").toString(),
-                intent.getStringExtra("evMateria").toString()
+                intent.getStringExtra("IDevento").toString()
             )
         }
     }
@@ -42,8 +46,8 @@ class EventDetail : AppCompatActivity() {
         tvEventDescript = findViewById(R.id.tvDescripcion)
         btnActualizar = findViewById(R.id.btn_Modificar)
         btnEliminar = findViewById(R.id.btn_Borrar)
-
     }
+
     private fun establecerValoresEnVista(){
         tvEventID.text = intent.getStringExtra("IDevento")
         tvEventMateria.text = intent.getStringExtra("evMateria")
@@ -51,10 +55,93 @@ class EventDetail : AppCompatActivity() {
         tvEventHora.text = intent.getStringExtra("evHora")
         tvEventTipo.text = intent.getStringExtra("evTipo")
         tvEventDescript.text = intent.getStringExtra("evDescripcion")
-
     }
 
-    private fun openUpdateDialog(iDevento: String, evmateria:String){
+    private fun openUpdateDialog(iDevento: String) {
+        val mDialog = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+        val mDialogView = inflater.inflate(R.layout.update_dialog, null) // vinculamos el xml
 
+        // Configurar los Spinners
+        val sp_Materia = mDialogView.findViewById<Spinner>(R.id.spMaterias)
+        val sp_Tipo = mDialogView.findViewById<Spinner>(R.id.spTipo)
+
+        val listaMaterias = arrayOf("Seleccione materia", "PPI", "Testing", "Mobile", "TIC", "Taller de comunicación")
+        val adaptMaterias = ArrayAdapter(this, R.layout.item_spinner, listaMaterias)
+        val listaTipos = arrayOf("Seleccione tipo", "Examen", "Trabajo práctico", "Otro")
+        val adaptTipos = ArrayAdapter(this, R.layout.item_spinner, listaTipos)
+
+        sp_Materia.adapter = adaptMaterias
+        sp_Tipo.adapter = adaptTipos
+
+        // Obtener los valores del Intent y establecerlos en los Spinners
+        val evMateria = intent.getStringExtra("evMateria")
+        val evTipo = intent.getStringExtra("evTipo")
+
+        evMateria?.let {
+            val position = adaptMaterias.getPosition(it)
+            if (position >= 0) {
+                sp_Materia.setSelection(position)
+            }
+        }
+
+        evTipo?.let {
+            val position = adaptTipos.getPosition(it)
+            if (position >= 0) {
+                sp_Tipo.setSelection(position)
+            }
+        }
+
+        // Configurar otros campos del diálogo
+        val et_Fecha = mDialogView.findViewById<EditText>(R.id.etFecha)
+        val et_Hora = mDialogView.findViewById<EditText>(R.id.etHora)
+        val et_Descript = mDialogView.findViewById<EditText>(R.id.etNameExamen)
+        val btn_updt = mDialogView.findViewById<Button>(R.id.btnActualizarDatos)
+
+        et_Fecha.setText(intent.getStringExtra("evFecha").toString())
+        et_Hora.setText(intent.getStringExtra("evHora").toString())
+        et_Descript.setText(intent.getStringExtra("evDescripcion").toString())
+
+        mDialog.setView(mDialogView)
+        mDialog.setTitle("Modificación de Evento")
+
+        val alertDialog = mDialog.create()
+        alertDialog.show()
+
+        btn_updt.setOnClickListener {
+            actualizarDatosEvento(
+                iDevento,
+                sp_Materia.selectedItem.toString(),
+                et_Fecha.text.toString(),
+                et_Hora.text.toString(),
+                sp_Tipo.selectedItem.toString(),
+                et_Descript.text.toString()
+            )
+
+            // Confirmación de guardado
+            Toast.makeText(applicationContext, "Datos actualizados", Toast.LENGTH_LONG).show()
+
+            // Actualización de vista con datos ya modificados
+            tvEventMateria.text = sp_Materia.selectedItem.toString()
+            tvEventFecha.text = et_Fecha.text.toString()
+            tvEventHora.text = et_Hora.text.toString()
+            tvEventTipo.text = sp_Tipo.selectedItem.toString()
+            tvEventDescript.text = et_Descript.text.toString()
+
+            alertDialog.dismiss()
+        }
+    }
+
+    private fun actualizarDatosEvento(
+        id: String,
+        materia: String,
+        fecha: String,
+        hora: String,
+        tipo: String,
+        descripcion: String
+    ) {
+        val dbRef = FirebaseDatabase.getInstance().getReference("evento").child(id)
+        val infoEvent = DatoFecha(id, materia, fecha, hora, descripcion, tipo)
+        dbRef.setValue(infoEvent)
     }
 }
