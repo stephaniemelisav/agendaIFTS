@@ -9,19 +9,41 @@
     android:padding="16dp">
 
     <!-- Background to add rounded corners and shadow -->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_shadow"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        android:padding="16dp">
+
+        <!-- ID -->
+        <TextView
+            android:id="@+id/labelID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID:"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:text=""
+            app:layout_constraintStart_toEndOf="@id/labelID"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelMateria"/>
 
         <!-- Materia -->
         <TextView
@@ -29,20 +51,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Materia:"
-            android:textColor="@android:color/black"
             android:textSize="16sp"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvID"/>
 
         <TextView
             android:id="@+id/tvMateria"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@id/labelFecha"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text=""
             app:layout_constraintStart_toEndOf="@id/labelMateria"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelFecha"/>
 
         <!-- Fecha -->
         <TextView
@@ -50,20 +73,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fecha:"
-            android:textColor="@android:color/black"
             android:textSize="14sp"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMateria" />
+            app:layout_constraintTop_toBottomOf="@id/tvMateria"/>
 
         <TextView
             android:id="@+id/tvFecha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@id/labelHora"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text=""
             app:layout_constraintStart_toEndOf="@id/labelFecha"
-            app:layout_constraintTop_toBottomOf="@id/tvMateria" />
+            app:layout_constraintTop_toBottomOf="@id/tvMateria"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelHora"/>
 
         <!-- Hora -->
         <TextView
@@ -71,20 +95,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hora:"
-            android:textColor="@android:color/black"
             android:textSize="14sp"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFecha" />
+            app:layout_constraintTop_toBottomOf="@id/tvFecha"/>
 
         <TextView
             android:id="@+id/tvHora"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@id/labelDescripcion"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text=""
             app:layout_constraintStart_toEndOf="@id/labelHora"
-            app:layout_constraintTop_toBottomOf="@id/tvFecha" />
+            app:layout_constraintTop_toBottomOf="@id/tvFecha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelDescripcion"/>
 
         <!-- Descripcion -->
         <TextView
@@ -92,20 +117,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descripcion:"
-            android:textColor="@android:color/black"
             android:textSize="14sp"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHora" />
+            app:layout_constraintTop_toBottomOf="@id/tvHora"/>
 
         <TextView
             android:id="@+id/tvDescripcion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text=""
             app:layout_constraintStart_toEndOf="@id/labelDescripcion"
-            app:layout_constraintTop_toBottomOf="@id/tvHora" />
+            app:layout_constraintTop_toBottomOf="@id/tvHora"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
