@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spMaterias"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <EditText
         android:id="@+id/etHora"
@@ -71,7 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFecha"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <Spinner
         android:id="@+id/spTipo"
@@ -84,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etHora"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <EditText
         android:id="@+id/etNameExamen"
@@ -101,24 +101,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spTipo"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <Button
         android:id="@+id/viewButton"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:text="Ver eventos"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNameExamen"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.2" />
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="330dp"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:text="Guardar"
+        android:backgroundTint="@android:color/holo_green_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
