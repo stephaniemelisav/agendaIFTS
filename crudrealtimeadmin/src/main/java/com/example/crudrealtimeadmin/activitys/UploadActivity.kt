@@ -50,7 +50,7 @@ class UploadActivity : AppCompatActivity() {
         val materias: Spinner = binding.spMaterias
         val tipos: Spinner = binding.spTipo
 
-        val listaMaterias = arrayOf("Seleccione materia", "Materia 01", "Materia 02", "Materia 03", "Materia 04", "Materia 05")
+        val listaMaterias = arrayOf("Seleccione materia", "PPI", "Testing", "Mobile", "TIC", "Taller de comunicación")
         val adaptMaterias = ArrayAdapter(this, R.layout.item_spinner, listaMaterias)
         val listaTipos = arrayOf("Seleccione tipo", "Examen", "Trabajo práctico", "Otro")
         val adaptTipos = ArrayAdapter(this, R.layout.item_spinner, listaTipos)

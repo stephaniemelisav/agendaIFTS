@@ -20,9 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035"
-        />
-
+        app:layout_constraintVertical_bias="0.035" />
 
     <Spinner
         android:id="@+id/spMaterias"
@@ -75,6 +73,19 @@
         app:layout_constraintTop_toBottomOf="@+id/etFecha"
         app:layout_constraintVertical_bias="0.08" />
 
+    <Spinner
+        android:id="@+id/spTipo"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
+        android:background="@drawable/green_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etHora"
+        app:layout_constraintVertical_bias="0.08" />
+
     <EditText
         android:id="@+id/etNameExamen"
         android:layout_width="330dp"
@@ -89,25 +100,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etHora"
+        app:layout_constraintTop_toBottomOf="@+id/spTipo"
         app:layout_constraintVertical_bias="0.08" />
-
-
-
-    <Spinner
-        android:id="@+id/spTipo"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:spinnerMode="dropdown"
-        android:textAlignment="center"
-        android:background="@drawable/green_border"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNameExamen"
-        app:layout_constraintVertical_bias="0.08" />
-
-
 
     <Button
         android:id="@+id/saveButton"
@@ -117,7 +111,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spTipo"
+        app:layout_constraintTop_toBottomOf="@+id/etNameExamen"
         app:layout_constraintVertical_bias="0.4" />
 
     <Button
@@ -130,7 +124,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/saveButton"
         app:layout_constraintVertical_bias="0.4" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

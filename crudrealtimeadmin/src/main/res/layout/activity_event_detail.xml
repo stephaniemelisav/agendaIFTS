@@ -62,6 +62,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:text=""
+            android:layout_marginStart="25dp"
             app:layout_constraintStart_toEndOf="@id/labelMateria"
             app:layout_constraintTop_toBottomOf="@id/tvID"
             app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +85,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:text=""
+            android:layout_marginStart="25dp"
             app:layout_constraintStart_toEndOf="@id/labelFecha"
             app:layout_constraintTop_toBottomOf="@id/tvMateria"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,8 +108,32 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:text=""
+            android:layout_marginStart="25dp"
             app:layout_constraintStart_toEndOf="@id/labelHora"
             app:layout_constraintTop_toBottomOf="@id/tvFecha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelTipo"/>
+
+        <!-- Tipo -->
+        <TextView
+            android:id="@+id/labelTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo:"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHora"/>
+
+        <TextView
+            android:id="@+id/tvTipo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text=""
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toEndOf="@id/labelTipo"
+            app:layout_constraintTop_toBottomOf="@id/tvHora"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/labelDescripcion"/>
 
@@ -120,7 +146,7 @@
             android:textSize="14sp"
             android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHora"/>
+            app:layout_constraintTop_toBottomOf="@id/tvTipo"/>
 
         <TextView
             android:id="@+id/tvDescripcion"
@@ -128,8 +154,9 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:text=""
+            android:layout_marginStart="25dp"
             app:layout_constraintStart_toEndOf="@id/labelDescripcion"
-            app:layout_constraintTop_toBottomOf="@id/tvHora"
+            app:layout_constraintTop_toBottomOf="@id/tvTipo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
