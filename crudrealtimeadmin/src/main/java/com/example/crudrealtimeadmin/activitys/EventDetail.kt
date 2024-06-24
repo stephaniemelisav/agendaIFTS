@@ -3,6 +3,7 @@ package com.example.crudrealtimeadmin.activitys
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -33,9 +34,29 @@ class EventDetail : AppCompatActivity() {
         setContentView(R.layout.activity_event_detail)
 
         iniciarVista()
+
         establecerValoresEnVista()
+
         btnActualizar.setOnClickListener {
             openUpdateDialog(intent.getStringExtra("IDevento").toString())
+        }
+
+        btnEliminar.setOnClickListener {
+            borrarEvento(
+                intent.getStringExtra("IDevento").toString()
+            )
+        }
+    }
+
+    private fun borrarEvento(id: String) {
+        val dbRf = FirebaseDatabase.getInstance().getReference("evento").child(id)
+        val mTask = dbRf.removeValue()
+        mTask.addOnSuccessListener {
+            Toast.makeText(this, "Evento eliminado.", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, ViewActivity::class.java)
+            finish()
+        }.addOnFailureListener { error ->
+            Toast.makeText(this, "Error al borrar: ${error.message}", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -47,7 +68,7 @@ class EventDetail : AppCompatActivity() {
         tvEventTipo = findViewById(R.id.tvTipo)
         tvEventDescript = findViewById(R.id.tvDescripcion)
         btnActualizar = findViewById(R.id.btn_Modificar)
-        btnEliminar = findViewById(R.id.btn_Borrar)
+        btnEliminar = findViewById(R.id.btnBorrar)
     }
 
     private fun establecerValoresEnVista() {
@@ -82,6 +103,7 @@ class EventDetail : AppCompatActivity() {
         val et_Descript = mDialogView.findViewById<EditText>(R.id.etNameExamen)
         val btn_updt = mDialogView.findViewById<Button>(R.id.btnActualizarDatos)
 
+
         et_Fecha.setText(intent.getStringExtra("evFecha").toString())
         et_Hora.setText(intent.getStringExtra("evHora").toString())
         et_Descript.setText(intent.getStringExtra("evDescripcion").toString())
@@ -113,6 +135,7 @@ class EventDetail : AppCompatActivity() {
         val alertDialog = mDialog.create()
         alertDialog.show()
 
+        // Acciones del botón actualizar
         btn_updt.setOnClickListener {
             actualizarDatosEvento(
                 iDevento,

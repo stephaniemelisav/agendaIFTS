@@ -34,6 +34,12 @@ class ViewActivity : AppCompatActivity() {
         getEventData()
     }
 
+    // Vuelve a cargar los datos cada vez que la actividad se reanuda (gracias ciclo de vida)
+    override fun onResume() {
+        super.onResume()
+        getEventData()
+    }
+
     private fun getEventData() {
         empRecyclerView.visibility = View.GONE
 
